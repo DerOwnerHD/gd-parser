@@ -18,6 +18,10 @@ export class ProfileRequest extends BaseRequest {
     public constructor(data: ProfileRequestData, callback: void);
 }
 
+export class CommentsRequest extends BaseRequest {
+    public constructor(data: CommentsRequestData, callback: void);
+}
+
 export interface BaseRequestData {
     secret?: string | "Wmfd2893gb7";
     gameVersion?: number | 21;
@@ -54,6 +58,12 @@ export interface LevelDataRequestData extends BaseRequestData {
 
 export interface ProfileRequestData extends BaseRequestData {
     name: string;
+}
+
+export interface CommentsRequestData extends BaseRequestData {
+    id: number;
+    page?: number;
+    recent?: boolean;
 }
 
 export type LevelDemonFilter = "EASY" | "MEDIUM" | "HARD" | "INSANE" | "EXTREME";

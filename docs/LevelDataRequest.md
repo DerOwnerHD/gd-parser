@@ -1,7 +1,7 @@
 # LevelDataRequest
 
 ---
-Class for retrieving specific Level data
+Class for retrieving specific Level data and downloading it
 
 ## Parameters
 
@@ -14,8 +14,6 @@ id - ID of the level to download | number
 ## Example
 
 ---
-
-So we're trying to get Extreme Demons with **blood** in the name, and it would work something like this:
 ```JS
 const { LevelDataRequest } = require("gd-parser");
 new LevelDataRequest({

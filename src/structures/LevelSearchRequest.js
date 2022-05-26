@@ -99,6 +99,8 @@ class LevelSearchRequest extends BaseRequest {
             const json = [];
             const music = [];
 
+            if (!JSON.stringify(data).startsWith("[")) return this.callback("-1");
+
             for (let i = 0; i < data[2].length; i += 17) {
                 const chunk = data[2].slice(i, i + 17);
                 if (chunk.length !== 17) continue;

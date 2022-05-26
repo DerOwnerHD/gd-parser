@@ -1,13 +1,5 @@
 exports.BaseRequest = require("./structures/BaseRequest");
-const { LevelSearchRequest } = require("./structures/LevelSearchRequest");
-const { ProfileRequest } = require("./structures/ProfileRequest");
-
-/*new LevelSearchRequest({type:"TRENDING"}, (data) => {
-    //console.log(data);
-})
-
- */
-
-new ProfileRequest({str:"DerOwnerHD"}, (data) => {
-    console.log(data);
-})
+exports.LevelSearchRequest = require("./structures/LevelSearchRequest");
+exports.ProfileRequest = require("./structures/ProfileRequest");
+exports.LevelDataRequest = require("./structures/LevelDataRequest");
+exports.DailyLevelRequest = require("./structures/DailyLevelRequest");

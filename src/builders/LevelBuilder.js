@@ -3,8 +3,13 @@ const XOR = require("../utils/XOR");
 
 class LevelBuilder {
     constructor(level, user, song, download, cb) {
-        if (download) {
-            this.password = parseInt(new XOR().decrypt(level[27] || "0", 26364));
+        if (download && level[27] !== "0") {
+            this.password = level[27];
+            let xor = new XOR();
+            let pass = xor.decrypt(this.password, 26364);
+            if (pass.length > 1) this.password = pass.slice(1);
+            else this.password = pass;
+            this.password = parseInt(this.password);
         }
         this.difficulty = level[17] > 0 ? LevelIdentifiers("demon", +level[43]) || "N/A" : LevelIdentifiers("difficulty", level[9]) || "N/A";
         cb({
@@ -42,7 +47,9 @@ class LevelBuilder {
             songLink: song?.url || null,
             songSize: song?.size || "0MB",
             songID: song?.id || "Level " + level[12],
-            difficultyFace: `${level[17] < 1 ? this.difficulty.toLowerCase() : `demon-${this.difficulty.toLowerCase().split(" ")[0]}`}${level[42] > 0 ? "-epic" : `${level[19] > 0 ? "-featured" : ""}`}`.replace("n/a", "unrated")
+            difficultyFace: `${level[17] < 1 ? this.difficulty.toLowerCase() : `demon-${this.difficulty.toLowerCase().split(" ")[0]}`}${level[42] > 0 ? "-epic" : `${level[19] > 0 ? "-featured" : ""}`}`.replace("n/a", "unrated"),
+            extraData: level[36] || null,
+            levelData: level[4] || null,
         });
     }
 }

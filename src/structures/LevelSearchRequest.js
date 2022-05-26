@@ -32,6 +32,8 @@ class LevelSearchRequest extends BaseRequest {
             this.type = types[data.type] || 0;
         }
 
+        if (!data.type) this.type = 0;
+
         this.str = data.str;
         this.diff = data.diff;
         this.demonFilter = data.demonFilter;
@@ -93,4 +95,4 @@ class LevelSearchRequest extends BaseRequest {
     }
 }
 
-exports.LevelSearchRequest = LevelSearchRequest;
+module.exports = LevelSearchRequest;

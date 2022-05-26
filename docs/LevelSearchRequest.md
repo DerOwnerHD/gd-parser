@@ -72,7 +72,7 @@ new LevelSearchRequest({
     "starsRequested": 0,
     "ldm": false,
     "objects": 24746,
-    "password": 0,
+    "password": null,
     "songName": "At the Speed of Light",
     "songAuthor": "Dimrain47",
     "songLink": "http://geometrydashcontent.com/songs/467339.mp3",

@@ -37,13 +37,15 @@ However, **gd-parser** returns you this mess in beautiful JSON, just look at it:
   "starsRequested": 0,
   "ldm": false,
   "objects": 24746,
-  "password": 0,
+  "password": null,
   "songName": "At the Speed of Light",
   "songAuthor": "Dimrain47",
   "songLink": "http://geometrydashcontent.com/songs/467339.mp3",
   "songSize": "9.56MB",
   "songID": 467339,
-  "difficultyFace": "demon-extreme-featured"
+  "difficultyFace": "demon-extreme-featured",
+  "extraData": null,
+  "levelString": null
 }
 ```
 ## Usage

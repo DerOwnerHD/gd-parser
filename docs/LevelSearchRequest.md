@@ -6,23 +6,24 @@ Class for retrieving Search Information
 ## Parameters
 
 ---
-type - Type of search<br><br>
-str - Search string<br><br>
-diff - Selected difficulty<br><br>
-demonFilter - The type of Demon selected<br><br>
-page - The page of the search results<br><br>
-len - The length of the levels<br><br>
-gauntlet - The Gauntlet ID of the levels<br><br>
-song - ID of the offical song searched for<br><br>
-customSong - ID of the custom song searched for<br><br>
-featured - If the levels are featured<br><br>
-epic - If the levels should be rated Epic<br><br>
-originalOnly - If only original levels should be shown<br><br>
-twoPlayer - Only show Two Player levels<br><br>
-coins - If the levels should have verified coins<br><br>
-star - If the levels should be starred<br><br>
-noStar - If the levels shouldn't be starred<br><br>
-count - How many levels should be returned
+### Optional parameters
+type - Type of search | string<br><br>
+str - Search string | string<br><br>
+diff - Selected difficulty | string<br><br>
+demonFilter - The type of Demon selected | string<br><br>
+page - The page of the search results | number<br><br>
+len - The length of the levels | string<br><br>
+gauntlet - The Gauntlet ID of the levels | number<br><br>
+song - ID of the offical song searched for | number<br><br>
+customSong - ID of the custom song searched for | number<br><br>
+featured - If the levels are featured | boolean<br><br>
+epic - If the levels should be rated Epic | boolean<br><br>
+originalOnly - If only original levels should be shown | boolean<br><br>
+twoPlayer - Only show Two Player levels | boolean<br><br>
+coins - If the levels should have verified coins | boolean<br><br>
+star - If the levels should be starred | boolean<br><br>
+noStar - If the levels shouldn't be starred | boolean<br><br>
+count - How many levels should be returned | number
 
 ## Example
 

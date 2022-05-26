@@ -1,5 +1,5 @@
 # gd-parser
-A NPM package for fetching information of Geometry Dash's servers
+A NPM package for fetching information from Geometry Dash's servers
 
 ---
 
@@ -44,7 +44,7 @@ However, **gd-parser** returns you this mess in beautiful JSON, just look at it:
   "songSize": "9.56MB",
   "songID": 467339,
   "difficultyFace": "demon-extreme-featured"
-  }
+}
 ```
 ## Usage
 To use **gd-parser**, import it using `require("gd-parser")` or `import gd-parser from "gd-parser"`.
@@ -62,6 +62,7 @@ new LevelSearchRequest({type:"MOST_LIKED"}, (json) => { // callback with data
 Every request consists of a JSON object with the request data, and a callback with the finished results in clean and 
 beautiful JSON.
 <br> This package supports Typings in your IDE to help you on your track.
+<br><br>More documentation on individual requests can be found in **docs**.
 
 ## Thanks
 A special thanks to the contributors of **GDDocs**, a tool for viewing all Geometry Dash API endpoints and their 

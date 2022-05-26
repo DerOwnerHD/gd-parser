@@ -12,11 +12,13 @@ class LevelDataRequest extends BaseRequest {
         super(data, callback);
         Object.defineProperty(this, "callback", { value: callback });
 
+        if (!data.id) throw new Error("ID is required");
+
         this.levelID = data.id || 0;
         this.inc = 1;
         this.extras = 0;
 
-        if (typeof this.levelID !== "number") throw new TypeError("levelID must be a number")
+        if (typeof this.levelID !== "number") throw new TypeError("ID must be a number");
 
         Request("downloadGJLevel22", this, async (data_, res, err) => {
             if (err) return this.callback(err);
@@ -49,7 +51,7 @@ class LevelDataRequest extends BaseRequest {
                         author: Object.keys(chunk[7])[0].replaceAll("~", ""),
                         url: decodeURIComponent(Object.keys(chunk[13])[0].replaceAll("~", "")),
                         size: Object.keys(chunk[9])[0].replaceAll("~", "") + "MB"
-                    }
+                    };
                     music.push(songData);
                 }
 

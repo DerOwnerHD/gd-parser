@@ -41,7 +41,7 @@ class LevelBuilder {
             starsRequested: +level[39] || 0,
             ldm: level[40] > 0,
             objects: +level[45] || 0,
-            password: this.password || 0,
+            password: this.password || null,
             songName: song?.name || LevelIdentifiers("music", +level[12] || 0)[0],
             songAuthor: song?.author || LevelIdentifiers("music", +level[12] || 0)[1],
             songLink: song?.url || null,

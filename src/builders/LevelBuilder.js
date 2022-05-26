@@ -15,7 +15,7 @@ class LevelBuilder {
         cb({
             id: +level[1],
             name: level[2],
-            description: atob(level[3]) || "(No description provided)",
+            description: Buffer.from((level[3] || ""), "base64").toString() || "(No description provided)",
             playerID: +level[6] || 0,
             accountID: +user[0] || 0,
             author: user[1] || "-",

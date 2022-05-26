@@ -91,6 +91,8 @@ class LevelSearchRequest extends BaseRequest {
         this.customSong = data.customSong || 0;
         this.count = data.count || 10;
         if (this.type) DataVerifier.verifiyNumberRange("LevelSearchType", this.type);
+        if (this.diff) DataVerifier.verifiyNumberRange("LevelDifficultyFilter", this.diff);
+        if (this.demonFilter) DataVerifier.verifiyNumberRange("LevelDemonFilter", this.demonFilter);
 
         Request("getGJLevels21", this, async (data, res, err) => {
             if (err) return this.callback(err);

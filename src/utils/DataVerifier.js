@@ -1,6 +1,7 @@
 const numberRanges = {
     "LevelSearchType": [0, 18, [9, 14]],
-    "LevelDifficultyFilter": [-2, 5, [0]]
+    "LevelDifficultyFilter": [-3, 5, [-1, 0]],
+    "LevelDemonFilter": [1, 5, []],
 };
 
 function verifyNumberRange(type, data) {

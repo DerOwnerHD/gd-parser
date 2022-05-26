@@ -34,7 +34,7 @@ class LevelSearchRequest extends BaseRequest {
         };
 
         const diff = {
-            AUTO: -1,
+            AUTO: -3,
             DEMON: -2,
             EASY: 1,
             NORMAL: 2,

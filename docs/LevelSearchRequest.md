@@ -9,7 +9,7 @@ Class for retrieving Search Information
 ### Optional parameters
 type - Type of search | string<br><br>
 query - Search query | string<br><br>
-diff - Selected difficulty | string<br><br>
+difficulty - Selected difficulty | string<br><br>
 demonFilter - The type of Demon selected | string<br><br>
 page - The page of the search results | number<br><br>
 length - The length of the levels | string<br><br>

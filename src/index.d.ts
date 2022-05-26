@@ -37,7 +37,7 @@ declare interface LevelSearchRequestData extends BaseRequestData {
     gauntlet?: number;
     type?: LevelSearchType;
     query?: string;
-    diff?: LevelDifficultyFilter;
+    difficulty?: LevelDifficultyFilter;
     length?: LevelLengthFilter;
     demonFilter: LevelDemonFilter;
     featured?: boolean;

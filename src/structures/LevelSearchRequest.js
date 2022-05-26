@@ -58,8 +58,8 @@ class LevelSearchRequest extends BaseRequest {
         this.len = data.length;
         if (typeof data.length === "string") this.len = lengths[data.length];
 
-        this.diff = data.diff;
-        if (typeof data.diff === "string") this.diff = diff[data.diff];
+        this.diff = data.difficulty;
+        if (typeof data.difficulty === "string") this.diff = diff[data.difficulty];
 
         this.demonFilter = data.demonFilter;
         if (typeof data.demonFilter === "string") this.demonFilter = demons[data.demonFilter];
@@ -80,8 +80,6 @@ class LevelSearchRequest extends BaseRequest {
         if (this.type) verifiyNumberRange("LevelSearchType", this.type);
         if (this.diff) verifiyNumberRange("LevelDifficultyFilter", this.diff);
         if (this.demonFilter) verifiyNumberRange("LevelDemonFilter", this.demonFilter);
-
-        console.log(this)
 
         Request("getGJLevels21", this, async (data, res, err) => {
             if (err) return this.callback(err);

@@ -26,6 +26,14 @@ class LevelSearchRequest extends BaseRequest {
             FEATURED_GDW: 17,
         };
 
+        const lengths = {
+            TINY: 0,
+            SMALL: 1,
+            MEDIUM: 2,
+            LARGE: 3,
+            XL: 4
+        };
+
         if (typeof data.type === "number") {
             this.type = data.type;
         } else if (typeof data.type === "string") {
@@ -33,6 +41,12 @@ class LevelSearchRequest extends BaseRequest {
         }
 
         if (!data.type) this.type = 0;
+
+        if (typeof data.len === "number") {
+            this.len = data.len;
+        } else if (typeof data.type === "string") {
+            this.len = lengths[data.len] || 0;
+        }
 
         this.str = data.str;
         this.diff = data.diff;

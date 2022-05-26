@@ -1,6 +1,5 @@
 'use strict';
 
-const DataVerifier = require("../utils/DataVerifier");
 const { BaseRequest } = require("./BaseRequest");
 const Request = require("../utils/Request");
 
@@ -10,6 +9,7 @@ const { ProfileRequest } = require("./ProfileRequest");
 class DailyLevelRequest extends BaseRequest {
     constructor(data, callback) {
         super(data, callback);
+
         Object.defineProperty(this, "callback", { value: callback });
 
         this.levelID = data.weekly ? -2 : -1;

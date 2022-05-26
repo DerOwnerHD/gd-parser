@@ -12,7 +12,7 @@ query - Search query | string<br><br>
 diff - Selected difficulty | string<br><br>
 demonFilter - The type of Demon selected | string<br><br>
 page - The page of the search results | number<br><br>
-len - The length of the levels | string<br><br>
+length - The length of the levels | string<br><br>
 gauntlet - The Gauntlet ID of the levels | number<br><br>
 song - ID of the offical song searched for | number<br><br>
 customSong - ID of the custom song searched for | number<br><br>
@@ -35,7 +35,7 @@ const { LevelSearchRequest } = require("gd-parser");
 new LevelSearchRequest({
     query: "blood",
     diff: "DEMON",
-    demonFilter: "EXTREME",
+    demonFilter: "EXTREME"
 }, (json) => {
     console.log(json);
 });

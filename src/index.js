@@ -3,3 +3,4 @@ exports.ProfileRequest = require("./structures/ProfileRequest");
 exports.LevelDataRequest = require("./structures/LevelDataRequest");
 exports.DailyLevelRequest = require("./structures/DailyLevelRequest");
 exports.CommentsRequest = require("./structures/CommentsRequest");
+exports.CredentialsRequest = require("./structures/CredentialsRequest");

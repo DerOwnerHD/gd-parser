@@ -1,6 +1,6 @@
 'use strict';
 
-const DataVerifier = require("../utils/DataVerifier");
+const { verifiyExistingType } = require("../utils/DataVerifier");
 const { BaseRequest } = require("./BaseRequest");
 const Request = require("../utils/Request");
 
@@ -12,13 +12,12 @@ class CommentsRequest extends BaseRequest {
 
         Object.defineProperty(this, "callback", { value: callback });
 
-        if (!data.id) throw new Error("levelID for comments is required");
-        if (typeof data.id !== "number") throw new TypeError("levelID must be a number");
+        verifiyExistingType(data.id, "number", "id");
 
         if (data.page && typeof data.page !== "number") throw new TypeError("page must be a number");
 
         this.levelID = data.id || 0;
-        this.page = data.page || 0;
+        this.page = data.page - 1 || 0;
         this.mode = data.recent ? 0 : 1 || 1;
 
         Request("getGJComments21", this, async (data, res, err) => {

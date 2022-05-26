@@ -1,6 +1,6 @@
 'use strict';
 
-const DataVerifier = require("../utils/DataVerifier");
+const { verifiyExistingType } = require("../utils/DataVerifier");
 const { BaseRequest } = require("./BaseRequest");
 const Request = require("../utils/Request");
 
@@ -10,15 +10,14 @@ const { ProfileRequest } = require("./ProfileRequest");
 class LevelDataRequest extends BaseRequest {
     constructor(data, callback) {
         super(data, callback);
+
         Object.defineProperty(this, "callback", { value: callback });
 
-        if (!data.id) throw new Error("ID is required");
+        verifiyExistingType(data.id, "number", "id");
 
         this.levelID = data.id || 0;
         this.inc = 1;
         this.extras = 0;
-
-        if (typeof this.levelID !== "number") throw new TypeError("ID must be a number");
 
         Request("downloadGJLevel22", this, async (data_, res, err) => {
             if (err) return this.callback(err);

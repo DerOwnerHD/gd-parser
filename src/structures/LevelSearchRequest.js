@@ -1,6 +1,6 @@
 'use strict';
 
-const DataVerifier = require("../utils/DataVerifier");
+const { verifiyNumberRange } = require("../utils/DataVerifier");
 const { BaseRequest } = require("./BaseRequest");
 const Request = require("../utils/Request");
 
@@ -9,6 +9,7 @@ const LevelBuilder = require("../builders/LevelBuilder");
 class LevelSearchRequest extends BaseRequest {
     constructor(data, callback) {
         super(data, callback);
+
         Object.defineProperty(this, "callback", {value: callback});
 
         const types = {
@@ -51,31 +52,17 @@ class LevelSearchRequest extends BaseRequest {
             EXTREME: 5
         };
 
-        if (typeof data.type === "number") {
-            this.type = data.type;
-        } else if (typeof data.type === "string") {
-            this.type = types[data.type] || 0;
-        }
+        this.type = data.type || 0;
+        if (typeof data.type === "string") this.type = types[data.type];
 
-        if (!data.type) this.type = 0;
+        this.len = data.length;
+        if (typeof data.length === "string") this.len = lengths[data.length];
 
-        if (typeof data.len === "number") {
-            this.len = data.len;
-        } else if (typeof data.len === "string") {
-            this.len = lengths[data.len] || 0;
-        }
+        this.diff = data.diff;
+        if (typeof data.diff === "string") this.diff = diff[data.diff];
 
-        if (typeof data.diff === "number") {
-            this.diff = data.diff;
-        } else if (typeof data.diff === "string") {
-            this.diff = diff[data.diff];
-        }
-
-        if (typeof data.demonFilter === "number") {
-            this.demonFilter = data.demonFilter;
-        } else if (typeof data.demonFilter === "string") {
-            this.demonFilter = demons[data.demonFilter];
-        }
+        this.demonFilter = data.demonFilter;
+        if (typeof data.demonFilter === "string") this.demonFilter = demons[data.demonFilter];
 
         this.str = data.query;
         this.page = data.page - 1 || "0";
@@ -90,9 +77,11 @@ class LevelSearchRequest extends BaseRequest {
         this.noStar = data.noStar ? 1 : 0;
         this.customSong = data.customSong || 0;
         this.count = data.count || 10;
-        if (this.type) DataVerifier.verifiyNumberRange("LevelSearchType", this.type);
-        if (this.diff) DataVerifier.verifiyNumberRange("LevelDifficultyFilter", this.diff);
-        if (this.demonFilter) DataVerifier.verifiyNumberRange("LevelDemonFilter", this.demonFilter);
+        if (this.type) verifiyNumberRange("LevelSearchType", this.type);
+        if (this.diff) verifiyNumberRange("LevelDifficultyFilter", this.diff);
+        if (this.demonFilter) verifiyNumberRange("LevelDemonFilter", this.demonFilter);
+
+        console.log(this)
 
         Request("getGJLevels21", this, async (data, res, err) => {
             if (err) return this.callback(err);

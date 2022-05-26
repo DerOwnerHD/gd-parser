@@ -1,4 +1,4 @@
-export class BaseRequest {
+declare class BaseRequest {
     public constructor(data: BaseRequestData, callback: void);
 }
 
@@ -22,19 +22,23 @@ export class CommentsRequest extends BaseRequest {
     public constructor(data: CommentsRequestData, callback: void);
 }
 
-export interface BaseRequestData {
-    secret?: string | "Wmfd2893gb7";
-    gameVersion?: number | 21;
-    binaryVersion?: number | 35;
+export class CredentialsRequest extends BaseRequest {
+    public constructor(data: CredentialsRequestData, callback: void);
+}
+
+declare interface BaseRequestData {
+    secret?: string;
+    gameVersion?: number;
+    binaryVersion?: number;
     gdw?: 0 | 1;
 }
 
-export interface LevelSearchRequestData extends BaseRequestData {
+declare interface LevelSearchRequestData extends BaseRequestData {
     gauntlet?: number;
     type?: LevelSearchType;
     query?: string;
     diff?: LevelDifficultyFilter;
-    len?: LevelLengthFilter;
+    length?: LevelLengthFilter;
     demonFilter: LevelDemonFilter;
     featured?: boolean;
     original?: boolean;
@@ -48,28 +52,33 @@ export interface LevelSearchRequestData extends BaseRequestData {
     page?: number;
 }
 
-export interface DailyLevelRequestData extends BaseRequestData {
+declare interface DailyLevelRequestData extends BaseRequestData {
     weekly?: boolean;
 }
 
-export interface LevelDataRequestData extends BaseRequestData {
+declare interface LevelDataRequestData extends BaseRequestData {
     id: number;
 }
 
-export interface ProfileRequestData extends BaseRequestData {
+declare interface ProfileRequestData extends BaseRequestData {
     name: string;
 }
 
-export interface CommentsRequestData extends BaseRequestData {
+declare interface CommentsRequestData extends BaseRequestData {
     id: number;
     page?: number;
     recent?: boolean;
 }
 
-export type LevelDemonFilter = "EASY" | "MEDIUM" | "HARD" | "INSANE" | "EXTREME";
+declare interface CredentialsRequestData extends BaseRequestData {
+    name: string;
+    password: string;
+}
 
-export type LevelLengthFilter = "TINY" | "SMALL" | "MEDIUM" | "LONG" | "XL";
+declare type LevelDemonFilter = "EASY" | "MEDIUM" | "HARD" | "INSANE" | "EXTREME";
 
-export type LevelDifficultyFilter = "AUTO" | "DEMON" | "EASY" | "NORMAL" | "HARD" | "HARDER" | "INSANE";
+declare type LevelLengthFilter = "TINY" | "SMALL" | "MEDIUM" | "LONG" | "XL";
 
-export type LevelSearchType = "MOST_LIKED" | "MOST_DOWNLOADED" | "DEFAULT" | "TRENDING" | "RECENT" | "FEATURED" | "MAGIC" | "AWARDED" | "MOST_LIKED_GDW" | "HALL_OF_FAME" | "FEATURED_GDW";
+declare type LevelDifficultyFilter = "AUTO" | "DEMON" | "EASY" | "NORMAL" | "HARD" | "HARDER" | "INSANE";
+
+declare type LevelSearchType = "MOST_LIKED" | "MOST_DOWNLOADED" | "DEFAULT" | "TRENDING" | "RECENT" | "FEATURED" | "MAGIC" | "AWARDED" | "MOST_LIKED_GDW" | "HALL_OF_FAME" | "FEATURED_GDW";

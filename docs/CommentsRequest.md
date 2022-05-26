@@ -10,13 +10,13 @@ Class for retrieving comments on a level
 id - ID of the level | number
 
 ### Optional parameters
-page - Page of the comments (*page 1 = 0, page 7 = 6, etc.*) | number<br><br>
+page - Page of the comments | number<br><br>
 recent - If it should be sorted by Recent | boolean
 
 ## Example
 
 ---
-Here we're trying to get page 40 of the Recent comments on the oldest level in the game.
+Here we're trying to get page 40 of the Recent comments on the oldest level in the game:
 ```JS
 const { CommentsRequest } = require("gd-parser");
 new CommentsRequest({

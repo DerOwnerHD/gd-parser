@@ -1,15 +1,17 @@
 'use strict';
 
 const { BaseRequest } = require("./BaseRequest");
+const { verifiyExistingType } = require("../utils/DataVerifier");
 const Request = require("../utils/Request");
 const ProfileBuilder = require("../builders/ProfileBuilder");
 
 class ProfileRequest extends BaseRequest {
     constructor(data, callback) {
         super(data, callback);
+
         Object.defineProperty(this, "callback", { value: callback });
 
-        if (!data.name) throw new Error("name is required");
+        verifiyExistingType(data.name, "string", "name");
 
         this.str = data.name;
 

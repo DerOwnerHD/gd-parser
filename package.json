@@ -1,7 +1,7 @@
 {
   "name": "gd-parser",
-  "version": "1.0.2",
-  "description": "API parser for Geometry Dash",
+  "version": "1.0.3",
+  "description": "A NPM package for fetching information from Geometry Dash's servers ",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

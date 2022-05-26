@@ -9,7 +9,7 @@ const LevelBuilder = require("../builders/LevelBuilder");
 class LevelSearchRequest extends BaseRequest {
     constructor(data, callback) {
         super(data, callback);
-        Object.defineProperty(this, "callback", { value: callback });
+        Object.defineProperty(this, "callback", {value: callback});
 
         const types = {
             MOST_LIKED: 0,
@@ -19,7 +19,6 @@ class LevelSearchRequest extends BaseRequest {
             RECENT: 4,
             FEATURED: 5,
             MAGIC: 6,
-            MAP_PACK: 10,
             AWARDED: 11,
             MOST_LIKED_GDW: 15,
             HALL_OF_FAME: 16,
@@ -34,6 +33,24 @@ class LevelSearchRequest extends BaseRequest {
             XL: 4
         };
 
+        const diff = {
+            AUTO: -1,
+            DEMON: -2,
+            EASY: 1,
+            NORMAL: 2,
+            HARD: 3,
+            HARDER: 4,
+            INSANE: 5
+        };
+
+        const demons = {
+            EASY: 1,
+            MEDIUM: 2,
+            HARD: 3,
+            INSANE: 4,
+            EXTREME: 5
+        };
+
         if (typeof data.type === "number") {
             this.type = data.type;
         } else if (typeof data.type === "string") {
@@ -44,15 +61,24 @@ class LevelSearchRequest extends BaseRequest {
 
         if (typeof data.len === "number") {
             this.len = data.len;
-        } else if (typeof data.type === "string") {
+        } else if (typeof data.len === "string") {
             this.len = lengths[data.len] || 0;
         }
 
+        if (typeof data.diff === "number") {
+            this.diff = data.diff;
+        } else if (typeof data.diff === "string") {
+            this.diff = diff[data.diff];
+        }
+
+        if (typeof data.demonFilter === "number") {
+            this.demonFilter = data.demonFilter;
+        } else if (typeof data.demonFilter === "string") {
+            this.demonFilter = demons[data.demonFilter];
+        }
+
         this.str = data.str;
-        this.diff = data.diff;
-        this.demonFilter = data.demonFilter;
         this.page = data.page - 1 || "0";
-        this.len = data.len;
         this.gauntlet = data.gauntlet || 0;
         this.song = data.song;
         this.featured = data.featured ? 1 : 0;

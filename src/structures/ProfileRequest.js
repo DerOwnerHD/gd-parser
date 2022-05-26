@@ -9,7 +9,7 @@ class ProfileRequest extends BaseRequest {
         super(data, callback);
         Object.defineProperty(this, "callback", { value: callback });
 
-        this.str = data.str;
+        this.str = data.name;
 
         Request("getGJUsers20", this, (data, res, err) => {
             if (err) return this.callback(err);

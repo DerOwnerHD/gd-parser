@@ -6,6 +6,6 @@ module.exports = class XOR {
         return Buffer.from(this.xor(str, key)).toString("base64").replace(/./gs, c => ({"/": "_", "+": "-"}[c] || c));
     }
     decrypt(str, key = 37526) {
-        return this.xor(Buffer.from(str.replace(/./gs, c => ({"/": "_", "+": "-"}[c] || c)), "base64").toString(), key)
+        return this.xor(Buffer.from(str.replace(/./gs, c => ({"/": "_", "+": "-"}[c] || c)), "base64").toString(), key);
     }
 }

@@ -1,20 +1,27 @@
 export class LevelSearchRequest extends BaseRequest {
-    public constructor(data: LevelRequestData, callback: void);
+    public constructor(data: LevelSearchRequestData, callback: void);
 }
 
 export class BaseRequest {
     public constructor(data: BaseRequestData, callback: void);
 }
 
-export interface LevelRequestData extends BaseRequestData {
+export interface LevelSearchRequestData extends BaseRequestData {
     gauntlet?: number;
-    accountID?: number;
-    gjp?: string;
     type?: LevelSearchType;
     str?: string;
     diff?: LevelDifficultyFilter;
     len?: LevelLengthFilter;
-    filters?: LevelSearchFilters;
+    featured?: 0 | 1;
+    original?: 0 | 1;
+    twoPlayer?: 0 | 1;
+    coins?: 0 | 1;
+    epic?: 0 | 1;
+    noStar?: 1;
+    star?: 1;
+    song?: number;
+    customSong?: number;
+    page?: number;
 }
 
 export type LevelLengthFilter = 0 | 1 | 2 | 3 | 4;
@@ -38,22 +45,6 @@ export enum LevelSearchType {
     HALL_OF_FAME = 16,
     FEATURED_2 = 17,
     UNKNOWN = 18
-}
-
-export interface LevelSearchFilters {
-    uncompleted?: 0 | 1;
-    onlyCompleted?: 0 | 1;
-    featured?: 0 | 1;
-    original?: 0 | 1;
-    twoPlayer?: 0 | 1;
-    coins?: 0 | 1;
-    epic?: 0 | 1;
-    noStar?: 1;
-    star?: 1;
-    song?: number;
-    customSong?: number;
-    completedLevels?: number[];
-    followed?: number[];
 }
 
 export interface BaseRequestData {

@@ -11,14 +11,48 @@ class LevelSearchRequest extends BaseRequest {
         super(data, callback);
         Object.defineProperty(this, "callback", { value: callback });
 
-        this.type = data.type;
+        const types = {
+            MOST_LIKED: 0,
+            MOST_DOWNLOADED: 1,
+            DEFAULT: 2,
+            TRENDING: 3,
+            RECENT: 4,
+            FEATURED: 5,
+            MAGIC: 6,
+            MAP_PACK: 10,
+            AWARDED: 11,
+            MOST_LIKED_GDW: 15,
+            HALL_OF_FAME: 16,
+            FEATURED_GDW: 17,
+        };
+
+        if (typeof data.type === "number") {
+            this.type = data.type;
+        } else if (typeof data.type === "string") {
+            this.type = types[data.type] || 0;
+        }
+
         this.str = data.str;
+        this.diff = data.diff;
+        this.demonFilter = data.demonFilter;
+        this.page = data.page - 1 || "0";
+        this.len = data.len;
+        this.gauntlet = data.gauntlet || 0;
+        this.song = data.song;
+        this.featured = data.featured ? 1 : 0;
+        this.originalOnly = data.originalOnly ? 1 : 0;
+        this.twoPlayer = data.twoPlayer ? 1 : 0;
+        this.coins = data.coins ? 1 : 0;
+        this.epic = data.epic ? 1 : 0;
+        this.star = data.star ? 1 : 0;
+        this.noStar = data.noStar ? 1 : 0;
+        this.customSong = data.customSong || 0;
+        this.count = data.count || 10;
         if (this.type) DataVerifier.verifiyNumberRange("LevelSearchType", this.type);
 
         Request("getGJLevels21", this, async (data, res, err) => {
-            if (err) return console.error(err);
+            if (err) return this.callback(err);
             const json = [];
-
             const music = [];
 
             for (let i = 0; i < data[2].length; i += 17) {
@@ -52,7 +86,7 @@ class LevelSearchRequest extends BaseRequest {
                         song = track;
                     }
                 });
-                new LevelBuilder(level, user, song, object => {json.push(object)});
+                new LevelBuilder(level, user, song, false,object => {json.push(object)});
             });
             this.callback(json);
         });

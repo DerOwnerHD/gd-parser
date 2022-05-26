@@ -28,7 +28,7 @@ export interface BaseRequestData {
 export interface LevelSearchRequestData extends BaseRequestData {
     gauntlet?: number;
     type?: LevelSearchType;
-    str?: string;
+    query?: string;
     diff?: LevelDifficultyFilter;
     len?: LevelLengthFilter;
     demonFilter: LevelDemonFilter;

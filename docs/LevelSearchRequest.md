@@ -8,7 +8,7 @@ Class for retrieving Search Information
 ---
 ### Optional parameters
 type - Type of search | string<br><br>
-str - Search string | string<br><br>
+query - Search query | string<br><br>
 diff - Selected difficulty | string<br><br>
 demonFilter - The type of Demon selected | string<br><br>
 page - The page of the search results | number<br><br>
@@ -33,9 +33,9 @@ So we're trying to get Extreme Demons with **blood** in the name, and it would w
 ```JS
 const { LevelSearchRequest } = require("gd-parser");
 new LevelSearchRequest({
-    str: "blood",
-    diff: -2,
-    demonFilter: 5,
+    query: "blood",
+    diff: "DEMON",
+    demonFilter: "EXTREME",
 }, (json) => {
     console.log(json);
 });

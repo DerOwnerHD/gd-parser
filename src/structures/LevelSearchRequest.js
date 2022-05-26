@@ -77,7 +77,7 @@ class LevelSearchRequest extends BaseRequest {
             this.demonFilter = demons[data.demonFilter];
         }
 
-        this.str = data.str;
+        this.str = data.query;
         this.page = data.page - 1 || "0";
         this.gauntlet = data.gauntlet || 0;
         this.song = data.song;

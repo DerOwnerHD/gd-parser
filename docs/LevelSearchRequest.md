@@ -12,7 +12,7 @@ diff - Selected difficulty<br><br>
 demonFilter - The type of Demon selected<br><br>
 page - The page of the search results<br><br>
 len - The length of the levels<br><br>
-gauntlet = The Gauntlet ID of the levels<br><br>
+gauntlet - The Gauntlet ID of the levels<br><br>
 song - ID of the offical song searched for<br><br>
 customSong - ID of the custom song searched for<br><br>
 featured - If the levels are featured<br><br>
@@ -45,17 +45,41 @@ new LevelSearchRequest({
   {
     "id": 10565740,
     "name": "Bloodbath",
-    "description": "...",
+    "description": "Whose blood will be spilt in the Bloodbath? Who will the victors be? How many will survive? Good luck...",
     "playerID": 503085,
     "accountID": 37415,
     "author": "Riot",
-    "downloads": 43502836,
+    "downloads": 43503743,
     "difficulty": "Extreme Demon",
-    "likes": 2348422,
+    "likes": 2348476,
     "disliked": false,
     "stars": 10,
     "diamonds": 12,
-    ...
+    "orbs": 500,
+    "version": 3,
+    "length": "Long",
+    "featured": true,
+    "epic": false,
+    "gameVersion": "2.1",
+    "copiedID": 7679228,
+    "twoPlayer": false,
+    "large": false,
+    "officalSong": 0,
+    "customSong": 467339,
+    "coins": 0,
+    "verifiedCoins": false,
+    "starsRequested": 0,
+    "ldm": false,
+    "objects": 24746,
+    "password": 0,
+    "songName": "At the Speed of Light",
+    "songAuthor": "Dimrain47",
+    "songLink": "http://geometrydashcontent.com/songs/467339.mp3",
+    "songSize": "9.56MB",
+    "songID": 467339,
+    "difficultyFace": "demon-extreme-featured",
+    "extraData": null,
+    "levelData": null
   },
   ...
 ]

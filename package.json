@@ -1,6 +1,6 @@
 {
   "name": "gd-parser",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A NPM package for fetching information from Geometry Dash's servers ",
   "main": "src/index.js",
   "scripts": {
@@ -27,5 +27,5 @@
   "devDependencies": {
     "@types/node": "^17.0.35"
   },
-  "types": "./src/index.d.ts"
+  "types": "./typings/index.d.ts"
 }

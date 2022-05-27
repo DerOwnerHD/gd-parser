@@ -2,7 +2,7 @@
 A NPM package for fetching information from Geometry Dash's servers
 
 
-[![npm package](https://nodei.co/npm/gd-parser.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/geometry-dash-api/)
+[![npm package](https://nodei.co/npm/gd-parser.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/gd-parser/)
 <p>
 <a href="https://www.npmjs.com/package/gd-parser"><img src="https://img.shields.io/npm/v/gd-parser.svg" 
 alt="Version"></a>

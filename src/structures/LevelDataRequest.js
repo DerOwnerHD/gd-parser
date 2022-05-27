@@ -1,6 +1,6 @@
 'use strict';
 
-const { verifiyExistingType } = require("../utils/DataVerifier");
+const { verifyExistingType } = require("../utils/DataVerifier");
 const { BaseRequest } = require("./BaseRequest");
 const Request = require("../utils/Request");
 
@@ -13,7 +13,7 @@ class LevelDataRequest extends BaseRequest {
 
         Object.defineProperty(this, "callback", { value: callback });
 
-        verifiyExistingType(data.id, "number", "id");
+        verifyExistingType(data.id, "number", "id");
 
         this.levelID = data.id || 0;
         this.inc = 1;

@@ -2,7 +2,7 @@
 
 const { BaseRequest } = require("./BaseRequest");
 const Request = require("../utils/Request");
-const { verifiyExistingType } = require("../utils/DataVerifier");
+const { verifyExistingType } = require("../utils/DataVerifier");
 
 class CredentialsRequest extends BaseRequest {
     constructor(data, callback) {
@@ -10,8 +10,8 @@ class CredentialsRequest extends BaseRequest {
 
         Object.defineProperty(this, "callback", { value: callback });
 
-        verifiyExistingType(data.name, "string", "name");
-        verifiyExistingType(data.password, "string", "password");
+        verifyExistingType(data.name, "string", "name");
+        verifyExistingType(data.password, "string", "password");
 
         this.userName = data.name || ""; // why the FUCK does this require userName and not just username??
         this.password = data.password || "";

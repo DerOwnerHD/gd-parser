@@ -1,7 +1,7 @@
 'use strict';
 
 const { BaseRequest } = require("./BaseRequest");
-const { verifiyExistingType } = require("../utils/DataVerifier");
+const { verifyExistingType } = require("../utils/DataVerifier");
 const Request = require("../utils/Request");
 const ProfileBuilder = require("../builders/ProfileBuilder");
 
@@ -11,7 +11,7 @@ class ProfileRequest extends BaseRequest {
 
         Object.defineProperty(this, "callback", { value: callback });
 
-        verifiyExistingType(data.name, "string", "name");
+        verifyExistingType(data.name, "string", "name");
 
         this.str = data.name;
 

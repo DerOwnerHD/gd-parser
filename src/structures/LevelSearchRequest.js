@@ -1,6 +1,6 @@
 'use strict';
 
-const { verifiyNumberRange } = require("../utils/DataVerifier");
+const { verifyNumberRange } = require("../utils/DataVerifier");
 const { BaseRequest } = require("./BaseRequest");
 const Request = require("../utils/Request");
 
@@ -66,7 +66,6 @@ class LevelSearchRequest extends BaseRequest {
 
         this.str = data.query;
         this.page = data.page - 1 || "0";
-        this.gauntlet = data.gauntlet || 0;
         this.song = data.song;
         this.featured = data.featured ? 1 : 0;
         this.originalOnly = data.originalOnly ? 1 : 0;
@@ -77,9 +76,9 @@ class LevelSearchRequest extends BaseRequest {
         this.noStar = data.noStar ? 1 : 0;
         this.customSong = data.customSong || 0;
         this.count = data.count || 10;
-        if (this.type) verifiyNumberRange("LevelSearchType", this.type);
-        if (this.diff) verifiyNumberRange("LevelDifficultyFilter", this.diff);
-        if (this.demonFilter) verifiyNumberRange("LevelDemonFilter", this.demonFilter);
+        if (this.type) verifyNumberRange("LevelSearchType", this.type);
+        if (this.diff) verifyNumberRange("LevelDifficultyFilter", this.diff);
+        if (this.demonFilter) verifyNumberRange("LevelDemonFilter", this.demonFilter);
 
         Request("getGJLevels21", this, async (data, res, err) => {
             if (err) return this.callback(err);

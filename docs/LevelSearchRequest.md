@@ -13,7 +13,6 @@ difficulty - Selected difficulty | string<br><br>
 demonFilter - The type of Demon selected | string<br><br>
 page - The page of the search results | number<br><br>
 length - The length of the levels | string<br><br>
-gauntlet - The Gauntlet ID of the levels | number<br><br>
 song - ID of the offical song searched for | number<br><br>
 customSong - ID of the custom song searched for | number<br><br>
 featured - If the levels are featured | boolean<br><br>

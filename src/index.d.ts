@@ -1,5 +1,5 @@
 declare class BaseRequest {
-    public constructor(data: BaseRequestData, callback: void);
+    constructor(data: BaseRequestData, callback: void);
 }
 
 export class LevelSearchRequest extends BaseRequest {
@@ -26,6 +26,14 @@ export class CredentialsRequest extends BaseRequest {
     public constructor(data: CredentialsRequestData, callback: void);
 }
 
+export class GauntletsRequest extends BaseRequest {
+    public constructor(data: GauntletsRequestData, callback: void);
+}
+
+export class GauntletDataRequest extends BaseRequest {
+    public constructor(data: GauntletDataRequestData, callback: void);
+}
+
 declare interface BaseRequestData {
     secret?: string;
     gameVersion?: number;
@@ -34,7 +42,6 @@ declare interface BaseRequestData {
 }
 
 declare interface LevelSearchRequestData extends BaseRequestData {
-    gauntlet?: number;
     type?: LevelSearchType;
     query?: string;
     difficulty?: LevelDifficultyFilter;
@@ -73,6 +80,14 @@ declare interface CommentsRequestData extends BaseRequestData {
 declare interface CredentialsRequestData extends BaseRequestData {
     name: string;
     password: string;
+}
+
+declare interface GauntletsRequestData extends BaseRequestData {
+    special?: boolean;
+}
+
+declare interface GauntletDataRequestData extends BaseRequestData {
+    gauntlet: number;
 }
 
 declare type LevelDemonFilter = "EASY" | "MEDIUM" | "HARD" | "INSANE" | "EXTREME";

@@ -15,10 +15,10 @@ function verifyNumberRange(type, data) {
  * I don't actually know of a better name for it -_-
  */
 function verifyExistingType(object, type, name) {
-    if (!object) throw new Error(name + " is required");
+    if (object === undefined || null) throw new Error(name + " is required");
     if (typeof object !== type) throw new TypeError(name + ` must be a${type.startsWith("a" || "e" || "i" || "o" || "u") ? "n" : ""} ` + type);
     // why the fuck would I add "a(n)" validation in typeerror throw? idk
 }
 
-exports.verifiyNumberRange = verifyNumberRange;
-exports.verifiyExistingType = verifyExistingType;
+exports.verifyNumberRange = verifyNumberRange;
+exports.verifyExistingType = verifyExistingType;

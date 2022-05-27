@@ -4,3 +4,5 @@ exports.LevelDataRequest = require("./structures/LevelDataRequest");
 exports.DailyLevelRequest = require("./structures/DailyLevelRequest");
 exports.CommentsRequest = require("./structures/CommentsRequest");
 exports.CredentialsRequest = require("./structures/CredentialsRequest");
+exports.GauntletsRequest = require("./structures/GauntletsRequest");
+exports.GauntletDataRequest = require("./structures/GauntletDataRequest");

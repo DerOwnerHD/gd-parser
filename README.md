@@ -19,7 +19,7 @@ However, **gd-parser** returns you this mess in beautiful JSON, just look at it:
 {
   "id": 10565740,
   "name": "Bloodbath",
-  "description": "",
+  "description": "<description here>",
   "playerID": 503085,
   "accountID": 37415,
   "author": "Riot",

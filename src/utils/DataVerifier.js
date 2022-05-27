@@ -1,5 +1,5 @@
 const numberRanges = { // min, max, [exceptions]
-    "LevelSearchType": [0, 17, [7, 8, 9, 10, 12, 13, 14]],
+    "LevelSearchType": [0, 17, [7, 8, 9, 12, 13, 14]],
     "LevelDifficultyFilter": [-3, 5, [-1, 0]],
     "LevelDemonFilter": [1, 5, []],
 };

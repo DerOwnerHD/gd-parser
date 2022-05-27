@@ -6,3 +6,4 @@ exports.CommentsRequest = require("./structures/CommentsRequest");
 exports.CredentialsRequest = require("./structures/CredentialsRequest");
 exports.GauntletsRequest = require("./structures/GauntletsRequest");
 exports.GauntletDataRequest = require("./structures/GauntletDataRequest");
+exports.MapPacksRequest = require("./structures/MapPacksRequest");

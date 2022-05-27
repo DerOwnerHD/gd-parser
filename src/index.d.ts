@@ -34,6 +34,10 @@ export class GauntletDataRequest extends BaseRequest {
     public constructor(data: GauntletDataRequestData, callback: void);
 }
 
+export class MapPacksRequest extends BaseRequest {
+    public constructor(data: MapPacksRequestData, callback: void);
+}
+
 declare interface BaseRequestData {
     secret?: string;
     gameVersion?: number;
@@ -90,10 +94,14 @@ declare interface GauntletDataRequestData extends BaseRequestData {
     gauntlet: number;
 }
 
+declare interface MapPacksRequestData extends BaseRequestData {
+    page?: number;
+}
+
 declare type LevelDemonFilter = "EASY" | "MEDIUM" | "HARD" | "INSANE" | "EXTREME";
 
 declare type LevelLengthFilter = "TINY" | "SMALL" | "MEDIUM" | "LONG" | "XL";
 
 declare type LevelDifficultyFilter = "AUTO" | "DEMON" | "EASY" | "NORMAL" | "HARD" | "HARDER" | "INSANE";
 
-declare type LevelSearchType = "MOST_LIKED" | "MOST_DOWNLOADED" | "DEFAULT" | "TRENDING" | "RECENT" | "FEATURED" | "MAGIC" | "AWARDED" | "MOST_LIKED_GDW" | "HALL_OF_FAME" | "FEATURED_GDW";
+declare type LevelSearchType = "MOST_LIKED" | "MOST_DOWNLOADED" | "DEFAULT" | "TRENDING" | "RECENT" | "FEATURED" | "MAGIC" | "AWARDED" | "MAP_PACK" | "MOST_LIKED_GDW" | "HALL_OF_FAME" | "FEATURED_GDW";

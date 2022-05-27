@@ -35,10 +35,18 @@ class GauntletsRequest extends BaseRequest {
         Request("getGJGauntlets21", this, (data, res, err) => {
             if (err) return this.callback(err);
 
+            if (!JSON.stringify(data).startsWith("[")) return this.callback("-1");
+
             let gauntlets = [];
 
             data[0].forEach(gauntlet => {
-                gauntlets = [...gauntlets, {id:+gauntlet[1],name:gauntletNames[+gauntlet[1] - 1] || "N/A",levels:gauntlet[3].split(",")}];
+                let levels = [];
+                gauntlet[3].split(",").forEach(level => levels = [...levels, parseInt(level)]);
+                gauntlets = [...gauntlets, {
+                    id: +gauntlet[1],
+                    name: gauntletNames[+gauntlet[1] - 1] || "N/A",
+                    levels: levels
+                }];
             })
 
             this.callback(gauntlets);

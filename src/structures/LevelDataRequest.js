@@ -5,7 +5,6 @@ const { BaseRequest } = require("./BaseRequest");
 const Request = require("../utils/Request");
 
 const LevelBuilder = require("../builders/LevelBuilder");
-const { ProfileRequest } = require("./ProfileRequest");
 
 class LevelDataRequest extends BaseRequest {
     constructor(data, callback) {

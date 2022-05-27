@@ -21,6 +21,7 @@ class LevelSearchRequest extends BaseRequest {
             FEATURED: 5,
             MAGIC: 6,
             AWARDED: 11,
+            MAP_PACK: 10,
             MOST_LIKED_GDW: 15,
             HALL_OF_FAME: 16,
             FEATURED_GDW: 17,

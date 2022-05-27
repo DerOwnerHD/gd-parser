@@ -1,7 +1,5 @@
 'use strict';
 
-const Request = require("../utils/Request");
-
 class BaseRequest {
     constructor(data, callback) {
 

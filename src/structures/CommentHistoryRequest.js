@@ -21,15 +21,15 @@ class CommentHistoryRequest extends BaseRequest {
         this.str = data.name || data.id.toString();
 
         Request("getGJUsers20", this, (data_, res, err) => {
-            if (err) return this.callback(err);
+            if (err) return this.callback({error:true,data:err});
             this.targetAccountID = data_[0][16];
             Request("getGJUserInfo20", this, (data_, res, err) => {
-                if (err) return this.callback(err);
+                if (err) return this.callback({error:true,data:err});
                 new ProfileBuilder(data_, (data_) => {
                     this.userID = data_.playerID;
                     this.page = data.page - 1 || 0;
                     Request("getGJCommentHistory", this, async (data, res, err) => {
-                        if (err) return this.callback(err);
+                        if (err) return this.callback({error:true,data:err});
 
                         const comments = [];
 

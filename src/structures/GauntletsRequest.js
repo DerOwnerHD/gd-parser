@@ -33,7 +33,7 @@ class GauntletsRequest extends BaseRequest {
         this.special = data.special ? 1 : 0;
 
         Request("getGJGauntlets21", this, (data, res, err) => {
-            if (err) return this.callback(err);
+            if (err) return this.callback({error:true,data:err});
 
             if (!JSON.stringify(data).startsWith("[")) return this.callback("-1");
 

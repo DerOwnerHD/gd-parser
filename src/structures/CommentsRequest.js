@@ -20,7 +20,7 @@ class CommentsRequest extends BaseRequest {
         this.mode = data.recent ? 0 : 1 || 1;
 
         Request("getGJComments21", this, async (data, res, err) => {
-            if (err) return this.callback(err);
+            if (err) return this.callback({error:true,data:err});
 
             const comments = [];
 

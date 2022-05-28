@@ -17,7 +17,7 @@ class GauntletDataRequest extends BaseRequest {
         this.gauntlet = data.gauntlet || 1;
 
         Request("getGJLevels21", this, async (data, res, err) => {
-            if (err) return this.callback(err);
+            if (err) return this.callback({error:true,data:err});
             const json = [];
             let music = [];
 

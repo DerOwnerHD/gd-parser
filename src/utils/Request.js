@@ -5,7 +5,7 @@ module.exports = async (endpoint = "", data = {}, callback = () => {}) => {
 
     const parameters = { form: data, headers: {} };
 
-    //console.log(parameters) // for debugging purposes
+    //console.log("http://www.boomlings.com/database/" + endpoint + ".php", JSON.stringify(parameters)) // for debugging purposes
 
     request.post("http://www.boomlings.com/database/" + endpoint + ".php", parameters, (err, res, body) => {
         let error = err;
@@ -14,7 +14,7 @@ module.exports = async (endpoint = "", data = {}, callback = () => {}) => {
         } if (!error) {
             ResponseParser(body, callback);
         } else {
-            return callback(body, null, error);
+            return callback(body, body, error);
         }
     });
 }

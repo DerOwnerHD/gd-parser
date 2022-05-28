@@ -14,7 +14,7 @@ class DailyLevelRequest extends BaseRequest {
         this.levelID = data.weekly ? -2 : -1;
 
         Request("downloadGJLevel22", this, async (data_, res, err) => {
-            if (err) return this.callback(err);
+            if (err) return this.callback({error:true,data:err});
 
             this.str = data_[0][1];
             this.type = 0;
@@ -22,7 +22,7 @@ class DailyLevelRequest extends BaseRequest {
             delete this.levelID;
 
             Request("getGJLevels21", this, async (data, res, err) => {
-                if (err) return this.callback(err);
+                if (err) return this.callback({error:true,data:err});
                 const music = [];
                 const level = data_[0];
 

@@ -20,7 +20,7 @@ class CredentialsRequest extends BaseRequest {
         this.udid = "lq21KGQY-nftu-Cu7R-WEyB-mv9Ygxob74"; // randomly generated
 
         Request("accounts/loginGJAccount", this, (data, res, err) => {
-            if (err) return this.callback(err);
+            if (err) return this.callback({error:true,data:err});
 
             const ids = Object.keys(data)[0].split(",");
             this.callback({

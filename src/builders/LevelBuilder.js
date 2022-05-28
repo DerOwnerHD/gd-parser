@@ -5,8 +5,7 @@ class LevelBuilder {
     constructor(level, user, song, download, cb) {
         if (download && level[27] !== "0") {
             this.password = level[27];
-            let xor = new XOR();
-            let pass = xor.decrypt(this.password, 26364);
+            let pass = XOR.decrypt(this.password, 26364);
             if (pass.length > 1) this.password = pass.slice(1);
             else this.password = pass;
             this.password = parseInt(this.password);

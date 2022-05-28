@@ -42,6 +42,14 @@ export class CommentHistoryRequest extends BaseRequest {
     public constructor(data: CommentHistoryRequestData, callback: void);
 }
 
+export class LeaderboardRequest extends BaseRequest {
+    public constructor(data: LeaderboardRequestData, callback: void);
+}
+
+export class LevelLeaderboardRequest extends BaseRequest {
+    public constructor(data: LevelLeaderboardRequestData, callback: void);
+}
+
 declare interface BaseRequestData {
     secret?: string;
     gameVersion?: number;
@@ -109,6 +117,18 @@ declare interface CommentHistoryRequestData extends BaseRequestData {
     id?: number;
 }
 
+declare interface LeaderboardRequestData extends BaseRequestData {
+    type?: LeaderboardType;
+    count?: number;
+}
+
+declare interface LevelLeaderboardRequestData extends BaseRequestData {
+    name: string;
+    password: string;
+    id: number;
+    type?: LevelLeaderboardType;
+}
+
 declare type LevelDemonFilter = "EASY" | "MEDIUM" | "HARD" | "INSANE" | "EXTREME";
 
 declare type LevelLengthFilter = "TINY" | "SMALL" | "MEDIUM" | "LONG" | "XL";
@@ -116,3 +136,7 @@ declare type LevelLengthFilter = "TINY" | "SMALL" | "MEDIUM" | "LONG" | "XL";
 declare type LevelDifficultyFilter = "AUTO" | "DEMON" | "EASY" | "NORMAL" | "HARD" | "HARDER" | "INSANE";
 
 declare type LevelSearchType = "MOST_LIKED" | "MOST_DOWNLOADED" | "DEFAULT" | "TRENDING" | "RECENT" | "FEATURED" | "MAGIC" | "AWARDED" | "MAP_PACK" | "MOST_LIKED_GDW" | "HALL_OF_FAME" | "FEATURED_GDW";
+
+declare type LeaderboardType = "STARS" | "CREATORS";
+
+declare type LevelLeaderboardType = "TOP" | "WEEK";

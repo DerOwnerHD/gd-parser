@@ -8,3 +8,5 @@ exports.GauntletsRequest = require("./structures/GauntletsRequest");
 exports.GauntletDataRequest = require("./structures/GauntletDataRequest");
 exports.MapPacksRequest = require("./structures/MapPacksRequest");
 exports.CommentHistoryRequest = require("./structures/CommentHistoryRequest");
+exports.LeaderboardRequest = require("./structures/LeaderboardRequest");
+exports.LevelLeaderboardRequest = require("./structures/LevelLeaderboardRequest");

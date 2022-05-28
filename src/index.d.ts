@@ -38,6 +38,10 @@ export class MapPacksRequest extends BaseRequest {
     public constructor(data: MapPacksRequestData, callback: void);
 }
 
+export class CommentHistoryRequest extends BaseRequest {
+    public constructor(data: CommentHistoryRequestData, callback: void);
+}
+
 declare interface BaseRequestData {
     secret?: string;
     gameVersion?: number;
@@ -96,6 +100,13 @@ declare interface GauntletDataRequestData extends BaseRequestData {
 
 declare interface MapPacksRequestData extends BaseRequestData {
     page?: number;
+}
+
+declare interface CommentHistoryRequestData extends BaseRequestData {
+    name: string;
+    page?: number;
+    recent?: boolean;
+    id?: number;
 }
 
 declare type LevelDemonFilter = "EASY" | "MEDIUM" | "HARD" | "INSANE" | "EXTREME";

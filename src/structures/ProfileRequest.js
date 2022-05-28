@@ -25,7 +25,7 @@ class ProfileRequest extends BaseRequest {
                    this.callback(data);
                });
             });
-        })
+        });
     }
 }
 

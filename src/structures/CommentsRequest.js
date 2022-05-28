@@ -13,8 +13,7 @@ class CommentsRequest extends BaseRequest {
         Object.defineProperty(this, "callback", { value: callback });
 
         verifyExistingType(data.id, "number", "id");
-
-        if (data.page && typeof data.page !== "number") throw new TypeError("page must be a number");
+        if (data.page) verifyExistingType(data.page, "number", "page");
 
         this.levelID = data.id || 0;
         this.page = data.page - 1 || 0;
@@ -38,7 +37,7 @@ class CommentsRequest extends BaseRequest {
                 for (let i = 0; i < profile.length; i += 2) {
                     user[profile[i]] = profile[i + 1];
                 }
-                new CommentBuilder(json, user, (comment) => {
+                new CommentBuilder(json, user, this.levelID, (comment) => {
                     comments.push(comment);
                 })
             });

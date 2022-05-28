@@ -1,10 +1,11 @@
 const icons = ["icon", "ship", "ball", "ufo", "wave", "robot", "spider"];
 
 class CommentBuilder {
-    constructor(comment, user, cb) {
+    constructor(comment, user, id,  cb) {
         cb({
             content: Buffer.from((comment[2] || ""), "base64").toString() || "",
             id: +comment[6] || 0,
+            levelID: +comment[1] || id || 0,
             likes: +comment[4] || 0,
             disliked: +comment[4] < 0 || false,
             spam: !!+comment[7] || false,

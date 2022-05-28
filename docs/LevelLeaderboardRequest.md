@@ -22,7 +22,7 @@ This class requires your username and password to fetch level leaderboards, whic
 ## Example
 
 ---
-Returns the top 200 this week players from **Sonar**
+Returns the top 200 players from **Sonar**
 ```JS
 const { LevelLeaderboardRequest } = require("gd-parser");
 new LevelLeaderboardRequest({

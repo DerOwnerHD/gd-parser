@@ -29,7 +29,7 @@ class MapPacksRequest extends BaseRequest {
         this.page = data.page - 1 || 0;
 
         Request("getGJMapPacks21", this, (data, res, err) => {
-            if (err) return this.callback({error:true,data:err});
+            if (err) return this.callback({error:true});
 
             let packs = [];
 

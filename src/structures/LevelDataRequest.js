@@ -19,13 +19,13 @@ class LevelDataRequest extends BaseRequest {
         this.extras = 0;
 
         Request("downloadGJLevel22", this, async (data_, res, err) => {
-            if (err) return this.callback({error:true,data:err});
+            if (err) return this.callback({error:true});
 
             this.str = this.levelID.toString();
             this.type = 0;
 
             Request("getGJLevels21", this, async (data, res, err) => {
-                if (err) return this.callback({error:true,data:err});
+                if (err) return this.callback({error:true});
                 const music = [];
                 const level = data_[0];
 

@@ -21,19 +21,17 @@ class CommentHistoryRequest extends BaseRequest {
         this.str = data.name || data.id.toString();
 
         Request("getGJUsers20", this, (data_, res, err) => {
-            if (err) return this.callback({error:true,data:err});
+            if (err) return this.callback({error:true});
             this.targetAccountID = data_[0][16];
             Request("getGJUserInfo20", this, (data_, res, err) => {
-                if (err) return this.callback({error:true,data:err});
+                if (err) return this.callback({error:true});
                 new ProfileBuilder(data_, (data_) => {
                     this.userID = data_.playerID;
                     this.page = data.page - 1 || 0;
                     Request("getGJCommentHistory", this, async (data, res, err) => {
-                        if (err) return this.callback({error:true,data:err});
+                        if (err || !data[0] || !JSON.stringify(data[0]).startsWith("[")) return this.callback({error:true});
 
                         const comments = [];
-
-                        if (!data[0] || !JSON.stringify(data[0]).startsWith("[")) return this.callback("-1");
 
                         data[0].forEach(object => {
                             const json = {};
@@ -54,7 +52,7 @@ class CommentHistoryRequest extends BaseRequest {
 
                         const results = +Object.keys(data[1])[1];
 
-                        comments[0] = {...comments[0], results: results, pages: Math.round(results / 10), range: `${+data[1][results] + 1} to ${+data[1][results] + +Object.keys(data[1])[0]}`};
+                        comments[0] = {...comments[0], results: results, pages: Math.round(results / 10), range: `${+data[1][results] + 1} to ${+data[1][results] + comments.length}`};
 
                         this.callback(comments);
                     });

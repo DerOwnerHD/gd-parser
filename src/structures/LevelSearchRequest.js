@@ -82,11 +82,9 @@ class LevelSearchRequest extends BaseRequest {
         if (this.demonFilter) verifyNumberRange("LevelDemonFilter", this.demonFilter);
 
         Request("getGJLevels21", this, async (data, res, err) => {
-            if (err) return this.callback({error:true,data:err});
+            if (err || !JSON.stringify(data).startsWith("[")) return this.callback({error:true});
             const json = [];
             const music = [];
-
-            if (!JSON.stringify(data).startsWith("[")) return this.callback("-1");
 
             for (let i = 0; i < data[2].length; i += 17) {
                 const chunk = data[2].slice(i, i + 17);

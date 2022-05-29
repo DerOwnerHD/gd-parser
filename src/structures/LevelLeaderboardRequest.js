@@ -26,7 +26,7 @@ class LevelLeaderboardRequest extends BaseRequest {
         this.str = data.name || "";
 
         Request("getGJUsers20", this, async (userData, res, err) => {
-            if (err || !userData[0]) return this.callback({error:true,data:err});
+            if (err || !userData[0]) return this.callback({error:true});
             if (!JSON.stringify(userData).startsWith("[")) return this.callback("-1");
 
             this.accountID = +userData[0][16] || 0;
@@ -35,8 +35,7 @@ class LevelLeaderboardRequest extends BaseRequest {
             this.levelID = data.id;
 
             Request("getGJLevelScores211", this, async (data, res, err) => {
-                if (err) return this.callback({error:true,data:err});
-                if (!JSON.stringify(data).startsWith("[")) return this.callback("-1");
+                if (err || !JSON.stringify(data).startsWith("[")) return this.callback({error:true});
 
                 const json = [];
 

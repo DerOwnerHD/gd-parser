@@ -16,11 +16,10 @@ class ProfileRequest extends BaseRequest {
         this.str = data.name;
 
         Request("getGJUsers20", this, (data, res, err) => {
-            if (err) return this.callback({error:true,data:err});
+            if (err) return this.callback({error:true});
             this.targetAccountID = data[0][16];
-
             Request("getGJUserInfo20", this, (data, res, err) => {
-               if (err) return this.callback({error:true,data:err});
+               if (err) return this.callback({error:true});
                new ProfileBuilder(data, (data) => {
                    this.callback(data);
                });

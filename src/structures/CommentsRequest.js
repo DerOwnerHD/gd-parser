@@ -20,11 +20,9 @@ class CommentsRequest extends BaseRequest {
         this.mode = data.recent ? 0 : 1 || 1;
 
         Request("getGJComments21", this, async (data, res, err) => {
-            if (err) return this.callback({error:true,data:err});
+            if (err || !JSON.stringify(data[0]).startsWith("[")) return this.callback({error:true});
 
             const comments = [];
-
-            if (!JSON.stringify(data[0]).startsWith("[")) return this.callback("-1");
 
             data[0].forEach(object => {
                 const json = {};
@@ -44,7 +42,7 @@ class CommentsRequest extends BaseRequest {
 
             const results = +Object.keys(data[1])[1];
 
-            comments[0] = {...comments[0], results: results, pages: Math.round(results / 10), range: `${+data[1][results] + 1} to ${+data[1][results] + +Object.keys(data[1])[0]}`};
+            comments[0] = {...comments[0], results: results, pages: Math.round(results / 10), range: `${+data[1][results] + 1} to ${+data[1][results] + comments.length}`};
 
             this.callback(comments);
         });

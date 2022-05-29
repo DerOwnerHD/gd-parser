@@ -11,3 +11,4 @@ exports.CommentHistoryRequest = require("./structures/CommentHistoryRequest");
 exports.LeaderboardRequest = require("./structures/LeaderboardRequest");
 exports.LevelLeaderboardRequest = require("./structures/LevelLeaderboardRequest");
 exports.ProfilePostsRequest = require("./structures/ProfilePostsRequest");
+exports.SongRequest = require("./structures/SongRequest");

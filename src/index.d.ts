@@ -54,6 +54,10 @@ export class ProfilePostsRequest extends BaseRequest {
     public constructor(data: ProfilePostsRequestData, callback: void);
 }
 
+export class SongRequest extends BaseRequest {
+    public constructor(data: SongRequestData, callback: void);
+}
+
 declare interface BaseRequestData {
     secret?: string;
     gameVersion?: number;
@@ -136,6 +140,10 @@ declare interface LevelLeaderboardRequestData extends BaseRequestData {
 declare interface ProfilePostsRequestData extends BaseRequestData {
     name: string;
     page?: number;
+}
+
+declare interface SongRequestData extends BaseRequestData {
+    id: number;
 }
 
 declare type LevelDemonFilter = "EASY" | "MEDIUM" | "HARD" | "INSANE" | "EXTREME";

@@ -12,3 +12,4 @@ exports.LeaderboardRequest = require("./structures/LeaderboardRequest");
 exports.LevelLeaderboardRequest = require("./structures/LevelLeaderboardRequest");
 exports.ProfilePostsRequest = require("./structures/ProfilePostsRequest");
 exports.SongRequest = require("./structures/SongRequest");
+exports.ArtistsRequest = require("./structures/ArtistsRequest");

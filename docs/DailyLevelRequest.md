@@ -23,6 +23,8 @@ new DailyLevelRequest({
 });
 ```
 ### Response
+
+**timeLeft** is always in seconds
 ```JSON
 {
   "id": 79958107,
@@ -61,6 +63,7 @@ new DailyLevelRequest({
   "songID": 827441,
   "difficultyFace": "demon-easy-epic",
   "extraData": "<some useless string here>",
-  "levelData": "<the actual encoded level data>"
+  "levelData": "<the actual encoded level data>",
+  "timeLeft": 36420
 }
 ```

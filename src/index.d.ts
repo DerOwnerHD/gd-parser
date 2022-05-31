@@ -62,6 +62,10 @@ export class ArtistsRequest extends BaseRequest {
     public constructor(data: ArtistsRequestData, callback: void);
 }
 
+export class MessagesRequest extends BaseRequest {
+    public constructor(data: MessagesRequestData, callback: void);
+}
+
 declare interface BaseRequestData {
     secret?: string;
     gameVersion?: number;
@@ -154,6 +158,18 @@ declare interface ArtistsRequestData extends BaseRequestData {
     page?: number;
 }
 
+declare interface MessagesRequestData extends BaseRequestData {
+    type: MessagesRequestType;
+    name: string;
+    password: string;
+    page?: number;
+    receiver?: string;
+    title?: string;
+    content?: string;
+    sender?: boolean;
+    id?: number;
+}
+
 declare type LevelDemonFilter = "EASY" | "MEDIUM" | "HARD" | "INSANE" | "EXTREME";
 
 declare type LevelLengthFilter = "TINY" | "SMALL" | "MEDIUM" | "LONG" | "XL";
@@ -165,3 +181,5 @@ declare type LevelSearchType = "MOST_LIKED" | "MOST_DOWNLOADED" | "DEFAULT" | "T
 declare type LeaderboardType = "STARS" | "CREATORS";
 
 declare type LevelLeaderboardType = "TOP" | "WEEK";
+
+declare type MessagesRequestType = "RECEIVED" | "SENT" | "UPLOAD" | "DELETE" | "DETAILS";

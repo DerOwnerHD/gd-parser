@@ -1,3 +1,5 @@
+'use strict';
+
 const { BaseRequest } = require("./BaseRequest");
 const Request = require("../utils/Request");
 const { verifyExistingType } = require("../utils/DataVerifier");
@@ -15,7 +17,7 @@ class MessagesRequest extends BaseRequest {
             UPLOAD: 2,
             DELETE: 3,
             DETAILS: 4
-        }
+        };
 
         const type = types[data.type];
 
@@ -92,7 +94,7 @@ class MessagesRequest extends BaseRequest {
                     const msg = {
                         id: +messageData[1] || 0,
                         title: Buffer.from((messageData[4] || ""), "base64").toString() || "",
-                        text: XOR.decrypt(messageData[5] || "", 14251),
+                        content: XOR.decrypt(messageData[5] || "", 14251),
                         name: messageData[6] || "-",
                         accountID: +messageData[2] || 0,
                         playerID: +messageData[3] || 0,

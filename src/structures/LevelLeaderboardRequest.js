@@ -54,7 +54,7 @@ class LevelLeaderboardRequest extends BaseRequest {
                         form: icons[+user[14]] || "icon",
                         glow: +user[15] === 2 || false
                     });
-                })
+                });
 
                 this.callback(json);
             });

@@ -15,7 +15,7 @@ const demons = {
     0: "Hard Demon",
     5: "Insane Demon",
     6: "Extreme Demon"
-}
+};
 const versions = {
     1: "Pre-1.7",
     2: "Pre-1.7",
@@ -29,7 +29,7 @@ const versions = {
     19: "1.9",
     20: "2.0",
     21: "2.1"
-}
+};
 const music = [
     ["Stay Inside Me", "OcularNebula"],
     ["Stereo Madness", "ForeverBound"],

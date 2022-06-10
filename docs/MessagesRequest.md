@@ -48,7 +48,7 @@ id - ID of the message to get details of | number
 ---
 ## Example
 This shows an example message object and it's structure:<br>
-**text** is only returned when message is fetched via **DETAILS**
+**content** is only returned when message is fetched via **DETAILS**
 ```JSON
 {
   "id": 6942069,
